@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Everyone Is Arguing About Homer Again. Most of Them Haven&rsquo;t Read Him.</title>
+<meta name="description" content="Before you take a side on Christopher Nolan&rsquo;s Odyssey, you might want to actually read it. A long, friendly tour of the strangest, smartest, and most modern poem in the Western canon." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1612;
+    --ink-soft: #2a231d;
+    --parchment: #f4ede1;
+    --parchment-warm: #ede4d3;
+    --parchment-deep: #e3d6bb;
+    --wine: #2a1f3a;           /* the wine-dark sea */
+    --wine-deep: #1b1429;
+    --terracotta: #b85c38;
+    --terracotta-deep: #8c4127;
+    --gold: #a88c4a;
+    --gold-light: #c9aa61;
+    --ash: #6b6055;
+    --rule: #d4c8b3;
+    --serif-display: "Cormorant Garamond", "Times New Roman", serif;
+    --serif-body: "EB Garamond", Georgia, serif;
+    --sans-accent: "Cinzel", "Times New Roman", serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: var(--serif-body);
+    font-size: 20px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(at 20% 10%, rgba(184, 92, 56, 0.04) 0, transparent 50%),
+      radial-gradient(at 80% 80%, rgba(42, 31, 58, 0.05) 0, transparent 50%);
+  }
+
+  /* Subtle grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* ============ TOP RIBBON ============ */
+  .ribbon {
+    background: var(--ink);
+    color: var(--parchment);
+    text-align: center;
+    font-family: var(--sans-accent);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .ribbon span { color: var(--gold-light); }
+
+  /* ============ MASTHEAD ============ */
+  .masthead {
+    border-bottom: 1px solid var(--rule);
+    padding: 22px 24px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .masthead .wordmark {
+    font-family: var(--sans-accent);
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .masthead .wordmark::before,
+  .masthead .wordmark::after {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--ink);
+    vertical-align: middle;
+    margin: 0 14px;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    padding: 80px 24px 60px;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .hero-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-family: var(--sans-accent);
+    font-size: 12px;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow .dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--terracotta-deep);
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 0 14px 3px;
+  }
+  h1.hero-title {
+    font-family: var(--serif-display);
+    font-weight: 500;
+    font-size: clamp(40px, 6.8vw, 88px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin: 0 auto 28px;
+    max-width: 16ch;
+    color: var(--ink);
+  }
+  h1.hero-title em {
+    font-style: italic;
+    color: var(--wine);
+  }
+  .hero-sub {
+    font-family: var(--serif-display);
+    font-size: clamp(18px, 2vw, 24px);
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--ash);
+    max-width: 38ch;
+    margin: 0 auto 40px;
+  }
+  .hero-byline {
+    font-family: var(--sans-accent);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .hero-byline .sep {
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--ash);
+    vertical-align: middle;
+    margin: 0 14px 3px;
+  }
+
+  /* ============ HERO ART (SVG SCENE) ============ */
+  .hero-art {
+    margin: 60px auto 0;
+    max-width: 1200px;
+    height: clamp(220px, 32vw, 400px);
+    position: relative;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: linear-gradient(180deg, #1b1429 0%, #2a1f3a 55%, #3a2952 100%);
+    overflow: hidden;
+  }
+  .hero-art svg { display: block; width: 100%; height: 100%; }
+
+  /* ============ ARTICLE ============ */
+  article {
+    position: relative;
+    z-index: 2;
+    padding: 80px 24px 40px;
+  }
+  .col {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  article p {
+    margin: 0 0 1.3em;
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  article p strong { color: var(--ink); font-weight: 600; }
+  article a { color: var(--terracotta-deep); text-decoration: none; border-bottom: 1px solid rgba(184,92,56,0.35); transition: border-color 0.2s; }
+  article a:hover { border-color: var(--terracotta-deep); }
+
+  /* Drop cap */
+  .lede::first-letter {
+    font-family: var(--serif-display);
+    font-weight: 600;
+    float: left;
+    font-size: 5.6em;
+    line-height: 0.88;
+    margin: 0.08em 0.12em 0 -0.04em;
+    color: var(--terracotta);
+    font-style: normal;
+  }
+
+  /* Section headings */
+  h2.section {
+    font-family: var(--serif-display);
+    font-weight: 500;
+    font-size: clamp(30px, 3.6vw, 42px);
+    line-height: 1.1;
+    margin: 90px 0 8px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  h2.section + .kicker {
+    font-family: var(--sans-accent);
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  h3.subhead {
+    font-family: var(--serif-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.2;
+    color: var(--wine);
+    margin: 44px 0 16px;
+  }
+
+  /* Pull quotes */
+  .pullquote {
+    margin: 64px -40px;
+    padding: 0 0 0 32px;
+    border-left: 2px solid var(--terracotta);
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .pullquote .attribution {
+    display: block;
+    margin-top: 18px;
+    font-family: var(--sans-accent);
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+
+  /* Section dividers (ornament) */
+  .ornament {
+    text-align: center;
+    margin: 64px auto;
+    color: var(--gold);
+  }
+  .ornament svg { width: 80px; height: 18px; display: inline-block; }
+
+  /* Inline SVG illustration blocks */
+  .figure {
+    margin: 64px -40px;
+    background: var(--parchment-warm);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .figure-art { aspect-ratio: 16/9; width: 100%; display: block; background: linear-gradient(160deg, #ebe1cf 0%, #d4c8b3 100%); }
+  .figure-art svg { width: 100%; height: 100%; display: block; }
+  .figure-caption {
+    font-family: var(--sans-accent);
+    font-size: 10.5px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ash);
+    padding: 14px 22px;
+    border-top: 1px solid var(--rule);
+    background: var(--parchment);
+  }
+
+  /* Mini sub-portraits inside sections */
+  .portrait {
+    margin: 36px 0 24px;
+    padding: 24px 28px;
+    background: rgba(232, 220, 195, 0.4);
+    border-left: 2px solid var(--gold);
+  }
+  .portrait h4 {
+    font-family: var(--serif-display);
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .portrait .role {
+    font-family: var(--sans-accent);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 14px;
+  }
+  .portrait p:last-child { margin-bottom: 0; }
+
+  /* ============ TRANSLATION CARDS ============ */
+  .translations {
+    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+    padding: 90px 24px 100px;
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-top: 80px;
+  }
+  .translations .col { max-width: 900px; }
+  .translations h2.section { margin-top: 0; }
+  .card-grid {
+    display: grid;
+    gap: 28px;
+    margin-top: 40px;
+  }
+  .book-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 28px;
+    background: var(--parchment);
+    border: 1px solid var(--rule);
+    padding: 28px;
+    position: relative;
+  }
+  .book-card.featured {
+    border: 1px solid var(--terracotta);
+    box-shadow: 0 1px 0 var(--terracotta), 0 12px 30px -20px rgba(42, 31, 58, 0.3);
+  }
+  .book-card.featured::after {
+    content: "Our pick";
+    position: absolute;
+    top: -11px;
+    left: 28px;
+    background: var(--terracotta);
+    color: var(--parchment);
+    font-family: var(--sans-accent);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+  }
+  .book-cover {
+    aspect-ratio: 2/3;
+    background: var(--wine);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.05),
+      0 6px 18px -8px rgba(0,0,0,0.4);
+  }
+  .book-cover svg { width: 100%; height: 100%; display: block; }
+  .book-content h4 {
+    font-family: var(--serif-display);
+    font-weight: 600;
+    font-size: 28px;
+    margin: 0 0 4px;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .book-content .translator {
+    font-family: var(--sans-accent);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 14px;
+  }
+  .book-content p { font-size: 17px; line-height: 1.55; margin-bottom: 16px; }
+  .btn {
+    display: inline-block;
+    font-family: var(--sans-accent);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 12px 22px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn:hover { background: var(--terracotta-deep); transform: translateY(-1px); }
+  .btn.alt { background: transparent; color: var(--ink); border: 1px solid var(--ink); padding: 11px 21px; }
+  .btn.alt:hover { background: var(--ink); color: var(--parchment); }
+
+  /* Companions list */
+  .companions {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+  }
+  .companions h3 {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0 0 24px;
+  }
+  .companions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 18px;
+  }
+  .companions li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .companions li:last-child { border-bottom: none; }
+  .companions .title-block { flex: 1; }
+  .companions .title-block .t {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .companions .title-block .a {
+    font-family: var(--serif-body);
+    color: var(--ash);
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  .companions .title-block .d {
+    font-size: 16px;
+    color: var(--ash);
+    margin-top: 4px;
+  }
+  .companions .btn { white-space: nowrap; }
+
+  /* ============ CLOSING ============ */
+  .closing {
+    padding: 100px 24px 80px;
+    background: var(--ink);
+    color: var(--parchment);
+    position: relative;
+    z-index: 2;
+  }
+  .closing .col { color: var(--parchment); }
+  .closing h2.section { color: var(--parchment); margin-top: 0; }
+  .closing p { color: rgba(244, 237, 225, 0.85); }
+  .closing .ornament { color: var(--gold-light); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--ink);
+    color: rgba(244, 237, 225, 0.55);
+    padding: 40px 24px 60px;
+    text-align: center;
+    font-size: 13px;
+    border-top: 1px solid rgba(168, 140, 74, 0.2);
+    position: relative;
+    z-index: 2;
+  }
+  footer p { font-size: 13px; line-height: 1.55; max-width: 600px; margin: 0 auto 10px; }
+  footer .disclosure {
+    font-family: var(--sans-accent);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 720px) {
+    body { font-size: 18px; }
+    article p { font-size: 18px; }
+    article { padding: 50px 22px 30px; }
+    .hero { padding: 50px 22px 40px; }
+    .pullquote { margin: 44px -8px; font-size: 24px; padding-left: 22px; }
+    .figure { margin: 44px -8px; }
+    .book-card { grid-template-columns: 1fr; gap: 20px; }
+    .book-cover { max-width: 160px; }
+    .companions li { flex-direction: column; align-items: flex-start; gap: 12px; }
+    h2.section { margin-top: 70px; }
+    .hero-art { margin-top: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon">
+  <span>&#x2756;</span> &nbsp; Long Read &nbsp; <span>&#x2756;</span> &nbsp; Approx. 28 min &nbsp; <span>&#x2756;</span> &nbsp; Updated May 2026
+</div>
+
+<header class="masthead">
+  <div class="wordmark">The Margin Notes</div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Literature <span class="dot"></span> Culture <span class="dot"></span> The Long Read</div>
+    <h1 class="hero-title">Everyone Is Arguing About Homer Again. <em>Most of Them Haven&rsquo;t Read Him.</em></h1>
+    <p class="hero-sub">Before you take a side on Christopher Nolan&rsquo;s <em>Odyssey</em>, you might want to actually open the book. It is stranger, weirder, funnier, and more radical than any side in the fight has noticed.</p>
+    <div class="hero-byline">An Essay <span class="sep"></span> 6,800 Words <span class="sep"></span> For the Curious Reader</div>
+  </div>
+
+  <!-- HERO ART: wine-dark sea + lone ship -->
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3a2952"/>
+          <stop offset="60%" stop-color="#2a1f3a"/>
+          <stop offset="100%" stop-color="#1b1429"/>
+        </linearGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1b1429"/>
+          <stop offset="100%" stop-color="#0d0a17"/>
+        </linearGradient>
+        <radialGradient id="moon" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#f4ede1" stop-opacity="0.95"/>
+          <stop offset="60%" stop-color="#a88c4a" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#a88c4a" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="220" fill="url(#sky)"/>
+      <rect y="220" width="1200" height="180" fill="url(#sea)"/>
+
+      <!-- moon -->
+      <circle cx="880" cy="115" r="55" fill="url(#moon)"/>
+      <circle cx="880" cy="115" r="30" fill="#f4ede1" opacity="0.9"/>
+
+      <!-- stars -->
+      <g fill="#f4ede1" opacity="0.7">
+        <circle cx="120" cy="60" r="1.2"/>
+        <circle cx="240" cy="90" r="0.8"/>
+        <circle cx="320" cy="40" r="1"/>
+        <circle cx="480" cy="70" r="1.4"/>
+        <circle cx="600" cy="30" r="0.9"/>
+        <circle cx="720" cy="80" r="1.1"/>
+        <circle cx="1000" cy="50" r="1"/>
+        <circle cx="1080" cy="100" r="0.8"/>
+        <circle cx="180" cy="140" r="0.7"/>
+        <circle cx="420" cy="170" r="0.9"/>
+      </g>
+
+      <!-- moon reflection on sea -->
+      <g opacity="0.4">
+        <ellipse cx="880" cy="240" rx="40" ry="2" fill="#f4ede1"/>
+        <ellipse cx="880" cy="260" rx="60" ry="2" fill="#f4ede1" opacity="0.6"/>
+        <ellipse cx="880" cy="285" rx="80" ry="2.5" fill="#f4ede1" opacity="0.4"/>
+        <ellipse cx="880" cy="315" rx="100" ry="3" fill="#f4ede1" opacity="0.25"/>
+      </g>
+
+      <!-- waves -->
+      <g stroke="#a88c4a" stroke-opacity="0.18" fill="none" stroke-width="1">
+        <path d="M0,260 Q150,255 300,260 T600,260 T900,260 T1200,260"/>
+        <path d="M0,290 Q150,285 300,290 T600,290 T900,290 T1200,290"/>
+        <path d="M0,325 Q150,320 300,325 T600,325 T900,325 T1200,325"/>
+        <path d="M0,360 Q150,355 300,360 T600,360 T900,360 T1200,360"/>
+      </g>
+
+      <!-- lone ship -->
+      <g transform="translate(280, 232)">
+        <!-- hull -->
+        <path d="M-50,18 Q-45,32 -25,34 L25,34 Q45,32 50,18 Z" fill="#1a1612"/>
+        <!-- mast -->
+        <line x1="0" y1="18" x2="0" y2="-58" stroke="#1a1612" stroke-width="1.5"/>
+        <!-- sail -->
+        <path d="M0,-58 L0,-2 L-32,-6 Q-30,-30 0,-58 Z" fill="#ede4d3" opacity="0.85"/>
+        <path d="M0,-58 L0,-2 L32,-6 Q30,-30 0,-58 Z" fill="#d4c8b3" opacity="0.7"/>
+        <!-- prow ornament -->
+        <path d="M-50,18 Q-58,8 -54,0" stroke="#1a1612" stroke-width="2" fill="none"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ ARTICLE BODY ============ -->
+<article>
+  <div class="col">
+
+    <!-- ============ OPENING ============ -->
+    <p class="lede">The fight started, as fights now do, with a trailer.</p>
+
+    <p>Within hours of Universal releasing the first look at Christopher Nolan&rsquo;s <em>Odyssey</em>, slated for July 17, 2026, the internet had organized itself into trenches. Elon Musk fired the first widely amplified salvo, calling the casting of Lupita Nyong&rsquo;o as Helen of Troy &ldquo;an insult&rdquo; to Homer, accusing the director of chasing awards, and eventually escalating to brand him an &ldquo;anti-White racist.&rdquo; Right-wing commentators piled on. Nyong&rsquo;o, asked about the backlash, said the cast was meant to reflect the world we actually live in.</p>
+
+    <p>Then came round two. Viewers mocked a line of dialogue&mdash;a character calling someone &ldquo;daddy&rdquo;&mdash;as if Bronze Age Aegean royalty had wandered into a TikTok comment section. The American accents felt wrong to people who had imagined plummy British vowels (because, presumably, ancient Ithaca was just outside London). Benny Safdie&rsquo;s bronze cuirass as Agamemnon got compared, unkindly, to a Batsuit.</p>
+
+    <p>And then, layered on top of all of it, came the political fight. Human-rights advocates and the Sahara International Film Festival accused the production of &ldquo;whitewashing colonialism&rdquo; by shooting in Dakhla, a city in the disputed territory of Western Sahara, currently administered by Morocco against the wishes of the indigenous Sahrawi people.</p>
+
+    <p>Three separate culture wars, all stacked on top of a poem most of the people fighting have not actually opened.</p>
+
+    <div class="pullquote">
+      This is, in a strange way, exactly how it should be.
+    </div>
+
+    <p>Because <em>The Odyssey</em>&mdash;the actual ancient text, not whatever each side has invented to be furious about&mdash;has been a lightning rod for nearly three thousand years. Every generation has rewritten Homer in its own image. Every generation has been told it was getting it wrong. The Romans cribbed him. The medieval monks moralized him. James Joyce reimagined him in Dublin. Margaret Atwood handed the microphone to Penelope. Madeline Miller turned a minor witch named Circe into a <em>New York Times</em> bestseller. The Coen Brothers set him to bluegrass.</p>
+
+    <p>The poem can take it. It is tougher than we are.</p>
+
+    <p>What is funny&mdash;and what most of the people screaming about Nolan have missed&mdash;is that the <em>Odyssey</em> itself is far stranger than any of the changes being argued about. It is, on close reading, a wildly weird book. Its hero is a serial liar. Its women are smarter than its men. Its monsters are sometimes more decent than its kings. It has zombies. It has a goddess who turns men into pigs. It has a six-headed cliff that eats sailors. It is, against all expectation, also one of the funniest works of literature ever written.</p>
+
+    <p>If you are going to fight about it, you should probably read it first.</p>
+
+    <p>So let us do that.</p>
+
+    <div class="ornament" aria-hidden="true">
+      <svg viewBox="0 0 80 18">
+        <line x1="0" y1="9" x2="28" y2="9" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="1" fill="currentColor"/>
+        <line x1="52" y1="9" x2="80" y2="9" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+    <!-- ============ SECTION 1: THE HERO IS A LIAR ============ -->
+    <h2 class="section">The Hero Is a Liar</h2>
+    <span class="kicker">On the man you think you know</span>
+
+    <p>If you only know Odysseus from textbooks and high-school summaries, you probably have him filed under &ldquo;noble Greek warrior.&rdquo; This is, charitably, a misreading.</p>
+
+    <p>Homer&rsquo;s very first line&mdash;the first word of the entire poem, in fact&mdash;calls him <em>polytropos</em>. The word is famously hard to translate. Richmond Lattimore renders it as the man of many ways. Robert Fagles goes with the man of twists and turns. Emily Wilson, the first woman to translate the <em>Odyssey</em> into English, simply calls him complicated. All three are right. All three are diplomatic. A more honest translation might be: shifty. Devious. The guy you do not want at a poker table.</p>
+
+    <p>Odysseus lies constantly. He lies to the Phaeacians who rescue him. He lies to the swineherd who raised him. He lies to his own son. He lies to his father. He even lies, on first meeting, to the goddess Athena, who has been protecting him for decades and finds the whole thing delightful. (She laughs. Few divine beings have ever had a better sense of humor.) When he finally returns to Ithaca after twenty years, his great reunion with his wife Penelope involves both of them testing each other through layered deceptions, like two people who have survived too much to take anything at face value.</p>
+
+    <div class="figure" aria-hidden="true">
+      <div class="figure-art">
+        <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="meander" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M5,5 L25,5 L25,15 L15,15 L15,25 L35,25 L35,15 L25,15 M5,35 L25,35" fill="none" stroke="#b85c38" stroke-width="1" opacity="0.4"/>
+            </pattern>
+          </defs>
+          <rect width="800" height="450" fill="#ebe1cf"/>
+          <rect width="800" height="450" fill="url(#meander)"/>
+          <!-- Greek pottery silhouette of a figure -->
+          <g transform="translate(400,235)">
+            <!-- amphora -->
+            <ellipse cx="0" cy="0" rx="120" ry="180" fill="#1a1612"/>
+            <ellipse cx="0" cy="-150" rx="55" ry="14" fill="#ebe1cf"/>
+            <ellipse cx="0" cy="155" rx="50" ry="12" fill="#1a1612"/>
+            <!-- handles -->
+            <path d="M-115,-80 Q-150,-50 -115,-10" stroke="#1a1612" stroke-width="14" fill="none"/>
+            <path d="M115,-80 Q150,-50 115,-10" stroke="#1a1612" stroke-width="14" fill="none"/>
+            <!-- figure painted on pot in terracotta -->
+            <g fill="#b85c38">
+              <!-- head -->
+              <circle cx="0" cy="-70" r="14"/>
+              <!-- helmet plume -->
+              <path d="M-10,-82 Q0,-100 10,-82" fill="#b85c38"/>
+              <!-- body -->
+              <path d="M-18,-58 L-22,10 L-12,10 L-8,-30 L8,-30 L12,10 L22,10 L18,-58 Z"/>
+              <!-- spear -->
+              <line x1="30" y1="-80" x2="30" y2="40" stroke="#b85c38" stroke-width="2"/>
+              <!-- shield -->
+              <circle cx="-26" cy="-22" r="14" fill="none" stroke="#b85c38" stroke-width="2.5"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="figure-caption">Figure I &mdash; A man &ldquo;of many ways&rdquo;: Odysseus in the painter&rsquo;s shorthand of antiquity.</div>
+    </div>
+
+    <p>He also cries. A lot. Modern readers are often surprised by how much Odysseus weeps. On Calypso&rsquo;s island, where the goddess wants to make him immortal, he sits on the beach and sobs at the sea. When a bard sings about the Trojan War at a feast, he hides his face in his cloak and weeps so hard he has to be rescued from the room. He is not a stoic. He is, by any honest description, a deeply traumatized middle-aged man trying to get home.</p>
+
+    <p>And his &ldquo;heroism,&rdquo; when you actually count the body count, is mostly survival. He does not slay dragons for glory. He escapes things. He outwits a cannibal. He outlasts a witch. He plugs his crew&rsquo;s ears with wax so they do not get eaten by singing women. The final massacre at his palace, when he finally returns home, is not a knight&rsquo;s-tale showdown. It is a slaughter in a dining room, and Homer lingers on every wound.</p>
+
+    <p>This is the man Christopher Nolan is putting on screen. The arguments about how he should look or sound are, in some sense, beside the point. The character himself is built out of contradictions. He is the founder of every conflicted antihero you have ever loved. Every Don Draper, every Walter White, every Tony Soprano. The trauma. The lying. The longing for a home that may no longer exist. He is older than Christianity. He is older than the alphabet most Europeans use.</p>
+
+    <p>He is also&mdash;and this is what nobody mentions&mdash;quite small. Homer never makes Odysseus an imposing physical specimen. He is described as broad-shouldered but short. He wins by talking. He wins by waiting. He wins by being, in a phrase the Greeks loved, <em>polymetis</em>: of many minds.</p>
+
+    <p>If you have ever read a thriller, a heist novel, a spy book, or a season of prestige television where the protagonist is barely the good guy, you have been reading the children of Odysseus your whole life.</p>
+
+    <div class="ornament" aria-hidden="true">
+      <svg viewBox="0 0 80 18">
+        <line x1="0" y1="9" x2="28" y2="9" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="1" fill="currentColor"/>
+        <line x1="52" y1="9" x2="80" y2="9" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+    <!-- ============ SECTION 2: THE PEOPLE AROUND HIM ============ -->
+    <h2 class="section">The People Around Him Are Even More Interesting</h2>
+    <span class="kicker">A field guide to the supporting cast</span>
+
+    <p>For all his fame, Odysseus is arguably not even the most fascinating person in his own poem.</p>
+
+    <div class="portrait">
+      <h4>Penelope</h4>
+      <div class="role">Wife, Strategist, Possible Spider</div>
+      <p>The standard summary of Penelope is that she is the loyal wife who waits twenty years for her husband to come home. This is not wrong, but it is roughly as useful as describing <em>Hamlet</em> as &ldquo;a college student with family issues.&rdquo;</p>
+      <p>For three of those years, Penelope holds off more than a hundred aggressive suitors. Entitled aristocrats, squatting in her palace, eating her food, harassing her servants, demanding she pick one of them as a new husband. Her son is too young to expel them. Her father-in-law has retreated into grief. The community offers no help. She is, functionally, alone in a hostile house.</p>
+      <p>So she plays for time. She tells the suitors she will choose one of them once she finishes weaving a burial shroud for her father-in-law, Laertes. She weaves all day. At night, by torchlight, she undoes the day&rsquo;s work. She does this for three years. A maid eventually rats her out. But the trick alone&mdash;the sheer, sustained, three-year-long bluff&mdash;tells you everything about who Penelope actually is.</p>
+      <p>She is, the Greeks would have said, <em>polymetis</em> herself. Of many minds. Just like her husband. They are a matched set. That is the joke of the poem, and also its heart. When Odysseus finally returns in disguise, Penelope tests him with a final trap, a question about the construction of their marriage bed that only the real Odysseus could answer. She does not fall into his arms. She investigates him. She is, frankly, scarier than her husband.</p>
+    </div>
+
+    <div class="portrait">
+      <h4>Telemachus</h4>
+      <div class="role">The son who has never met his father</div>
+      <p>The first four books of the <em>Odyssey</em> are not even about Odysseus. They are about Telemachus, who is around twenty when the poem opens. He has spent his entire life surrounded by men eating his inheritance while telling him his father was a hero. He has no proof. No body. No story of his own.</p>
+      <p>The opening of the <em>Odyssey</em> is, in a real sense, a coming-of-age story. Athena arrives in disguise and essentially tells Telemachus to stop sulking and go look for his father. He sets out. He visits the surviving veterans of the Trojan War. He hears stories. He begins to become someone. By the time Odysseus returns, Telemachus has grown into a man capable of fighting beside him.</p>
+      <p>If you have ever watched a streaming series where the first season belongs to the child who has to grow up before the real story can begin, you have watched Telemachus&rsquo;s arc. The poem invented it.</p>
+    </div>
+
+    <div class="portrait">
+      <h4>Helen</h4>
+      <div class="role">Smarter than the men who fought over her</div>
+      <p>Here is the part most of the Twitter combatants have not considered: Helen of Troy is in the <em>Odyssey</em>. Not as a memory. Not as a flashback. As a living, breathing character, encountered by Telemachus when he visits Sparta. She is back home with Menelaus. The war is over. She is hosting dinner.</p>
+      <p>The Helen Homer shows us is not a passive trophy. She is sharp, self-aware, and slightly terrifying. She knows what was done in her name. She knows what people say about her. She drugs the wine to keep everyone calm during difficult conversations. She tells war stories, including one in which she helped Odysseus during the Trojan War, infiltrating Troy and recognizing him through his disguise.</p>
+      <p>In other words, the only Helen Homer himself depicts at length is a complicated, intelligent woman who survived being made into a symbol. She is, quite literally, the only character in Western literature who has spent more time being argued over than she has been read. Whatever you think of Lupita Nyong&rsquo;o playing her, the role does not require a porcelain doll. It requires somebody who can hold a room. That is the assignment.</p>
+    </div>
+
+    <div class="portrait">
+      <h4>The Monsters</h4>
+      <div class="role">More interesting than the gods</div>
+      <p>The most famous parts of the <em>Odyssey</em>&mdash;the parts everyone half-remembers from school&mdash;are the monsters of Books 9 through 12. The Cyclops, the Sirens, Scylla and Charybdis, Circe, the descent into the underworld.</p>
+      <p>What modern readers usually miss is that almost every monster in the <em>Odyssey</em> is also, in some sense, a victim, a host, or a moral test. The Cyclops Polyphemus is a shepherd whose island Odysseus invades, and whom Odysseus blinds, earning him a god&rsquo;s lifelong grudge. Circe, the witch who turns sailors into pigs, ends up sheltering Odysseus&rsquo;s crew for a full year, becoming his lover and, eventually, a strangely tender ally. The Sirens do not promise sex; that is a Hollywood invention. They promise knowledge: the full, true account of the Trojan War. Odysseus, who is constitutionally unable to stop wanting to know things, has himself tied to the mast specifically because he cannot trust himself to resist that particular temptation.</p>
+      <p>The monsters of the <em>Odyssey</em> are a long meditation on hospitality, knowledge, and the cost of curiosity. They are closer to <em>Black Mirror</em> than to <em>Clash of the Titans</em>.</p>
+    </div>
+
+    <div class="ornament" aria-hidden="true">
+      <svg viewBox="0 0 80 18">
+        <line x1="0" y1="9" x2="28" y2="9" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="1" fill="currentColor"/>
+        <line x1="52" y1="9" x2="80" y2="9" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+    <!-- ============ SECTION 3: HOW IT'S TOLD ============ -->
+    <h2 class="section">Even the Way It Is Told Is a Trick</h2>
+    <span class="kicker">Homer invented the techniques you watch every week</span>
+
+    <p>Here is something most people who have not read the <em>Odyssey</em> do not realize: most of the famous adventures&mdash;the Cyclops, Circe, the Sirens, the underworld, Scylla and Charybdis&mdash;happen entirely in flashback.</p>
+
+    <p>The poem does not start with the Trojan War. It does not start with Odysseus setting sail. It does not start at the beginning of anything. It opens, instead, with Odysseus stranded on a beach on a goddess&rsquo;s island in the seventh year of his captivity there, staring at the sea, weeping, with most of his crew already long dead. The action you actually witness on the page is the <em>last</em> leg of his journey.</p>
+
+    <div class="pullquote">
+      The middle of the poem&mdash;the famous adventures&mdash;is recounted by Odysseus himself, after dinner, at a foreign court. He is the dinner-party storyteller. He is an unreliable narrator.
+    </div>
+
+    <p>Everything you &ldquo;know&rdquo; about the Cyclops and Circe and the underworld comes from his own mouth, told to an audience he is actively trying to charm into giving him a ride home.</p>
+
+    <p>This is the original <em>in medias res</em> opening. Every novel that begins with the protagonist already in trouble, then peels back to explain how they got there, is doing what Homer did first. Every prestige TV pilot that opens with a body, then jumps to &ldquo;three months earlier,&rdquo; is descended from this. The pilot of <em>Breaking Bad</em>. The opening of <em>Pulp Fiction</em>. The structure of <em>Lost</em>. They are all Homeric.</p>
+
+    <p>The <em>Odyssey</em> is also one of the first books in history to use the device of the story-within-the-story. The first book to use foreshadowing as a deliberate technique. The first book to use named flashback. The first book to use the trick in which a character recognizes another character via a physical scar, triggering a flashback to how the scar was earned. Erich Auerbach, the great twentieth-century critic, wrote a famous essay about that exact scene&mdash;the moment the old nurse Eurycleia recognizes the disguised Odysseus by the scar on his thigh&mdash;as the founding moment of Western realist narrative.</p>
+
+    <p>The poem invents the techniques people use to argue about it.</p>
+
+    <div class="ornament" aria-hidden="true">
+      <svg viewBox="0 0 80 18">
+        <line x1="0" y1="9" x2="28" y2="9" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="1" fill="currentColor"/>
+        <line x1="52" y1="9" x2="80" y2="9" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+    <!-- ============ SECTION 4: MODERN RESONANCE ============ -->
+    <h2 class="section">Why a 2,800-Year-Old Poem Hits So Hard Right Now</h2>
+    <span class="kicker">Five themes that read like they were written this morning</span>
+
+    <p>If the <em>Odyssey</em> were merely a swashbuckling adventure, it would have died a long time ago. What has kept it alive&mdash;and what makes the current controversy feel like such a strange, lossy compression of something far richer&mdash;is how directly it speaks to the anxieties of right now.</p>
+
+    <h3 class="subhead">Homecoming, when home has changed</h3>
+
+    <p>The Greek word for the homecoming theme is <em>nostos</em>. It is where we get the word &ldquo;nostalgia,&rdquo; which originally meant something closer to a medical condition. A homesickness so severe it could kill you.</p>
+
+    <p>Odysseus spends ten years trying to get home. When he finally arrives, he does not recognize it. Athena has to literally show him where he is. The palace has been overrun. His son has grown up without him. His wife has been under siege. His dog dies the moment of recognition. His father is living, half-mad, in a vegetable garden. The Ithaca he left no longer exists.</p>
+
+    <p>If you have ever moved back to your hometown after a decade away, if you have ever come home from a war, or a long illness, or a long stretch in a city that swallowed your twenties, you already know this feeling. The <em>Odyssey</em> is the first and still the best book about the strange grief of return. About the way the home you spent years dreaming of stops being real the moment you actually walk back into it.</p>
+
+    <p>In a century of mass migration, displacement, refugee crises, climate-driven dislocation, and the steady erosion of place itself by remote work and rising rents, <em>nostos</em> might be the most modern emotion in the entire poem.</p>
+
+    <h3 class="subhead">Disguise and identity</h3>
+
+    <p>For the entire second half of the <em>Odyssey</em>, the hero is in disguise. He pretends to be a beggar. He pretends to be a Cretan stranger. He pretends to be himself pretending to be other people. By the time he reveals his real identity to his wife&mdash;and notice how late this comes in the poem; she is one of the last people to learn the truth&mdash;he has performed so many versions of himself that the question of what is underneath all the masks becomes genuinely unanswerable.</p>
+
+    <p>This is, of course, the most twenty-first-century theme imaginable. We all live in disguise now. We all have a curated profile, a work persona, a group-chat self, a parental self, an anonymous self, a self for the algorithm. The <em>Odyssey</em> asks: when you take all the masks off, is there still a person? Or have the masks been doing the work this whole time?</p>
+
+    <div class="pullquote">
+      When you take all the masks off, is there still a person? Or have the masks been doing the work this whole time?
+    </div>
+
+    <p>Homer does not give an easy answer. But he does give us one moment&mdash;the most famous test in the poem&mdash;in which Penelope tricks her husband by pretending to have moved their marriage bed. Odysseus loses his composure for the only time in the book, because the bed was carved out of a living olive tree rooted into the ground. It cannot be moved. Their marriage is built on something literally rooted. That is the only &ldquo;real self&rdquo; the poem will give you: the one other people remember when you have forgotten how to be it.</p>
+
+    <h3 class="subhead">Trauma</h3>
+
+    <p>For most of the poem&rsquo;s history, Odysseus&rsquo;s tears, his nightmares, his withdrawal from his crew, his obsessive replaying of the war, all of it was discussed as character flaws, narrative color, or the marks of an unmanly hero. Modern readers, post-Vietnam, post-Iraq, post-Afghanistan, recognize it instantly. The <em>Odyssey</em> is a war-veteran story. It is also a survivor story. Odysseus loses every single member of his crew. He returns alone. There is no one alive who shared what he experienced. He is the only witness.</p>
+
+    <p>The classicist Jonathan Shay wrote a famous book, <em>Odysseus in America</em>, connecting Odysseus&rsquo;s homecoming directly to the experiences of American combat veterans. Shay&rsquo;s argument, in brief, is that Homer was already doing trauma psychology in 700 BCE. He knew about flashbacks. He knew about hypervigilance. He knew about the impossibility of explaining what you saw to people who were not there.</p>
+
+    <p>This is one of the reasons the poem still matters. Wars have not gotten kinder. The cost of coming home has not gotten lower.</p>
+
+    <h3 class="subhead">Hospitality, and what we owe strangers</h3>
+
+    <p>The word the Greeks used was <em>xenia</em>. The sacred bond between host and guest. It is the moral spine of the entire <em>Odyssey</em>. Every encounter is a test of it. The suitors fail it by abusing Penelope&rsquo;s house. The Cyclops fails it by eating his guests. Calypso fails it by refusing to let her guest leave. The Phaeacians pass it with spectacular generosity. Penelope passes it even when she is broke. Odysseus passes it, finally, in disguise, when he is kind to a beggar.</p>
+
+    <p>Homer&rsquo;s universe runs on this principle: how you treat the stranger at your door is the truest measure of who you are. Not your battle record. Not your speeches. Not your bloodline. Whether you opened the door.</p>
+
+    <p>In a century arguing about migration, borders, asylum, and who counts as our neighbor, <em>xenia</em> might be the most quietly radical idea in all of ancient literature. It is also, not coincidentally, the idea most directly relevant to a global production crew filming in occupied Western Sahara, and to the people pointing out that <em>xenia</em> runs both ways: hosts owe guests, but guests owe hosts, too.</p>
+
+    <h3 class="subhead">Women who are not decorative</h3>
+
+    <p>The <em>Odyssey</em> has a higher concentration of significant female characters than almost any other work of ancient literature. Penelope. Athena. Helen. Circe. Calypso. The Sirens. Nausicaa. Eurycleia. Anticleia. Most of the people who actually decide Odysseus&rsquo;s fate are women: divine, mortal, or somewhere in between.</p>
+
+    <p>Emily Wilson, the translator, has pointed out that this aspect of the poem was systematically downplayed by centuries of male translators, who softened, sentimentalized, or sexualized the women into shapes they did not have in the Greek. Read Wilson&rsquo;s translation alongside an older one and the difference is sometimes startling. Circe in the Greek is not a vamp. Penelope in the Greek is not a doormat. The slave women murdered by Odysseus in the final book are, in the Greek, slave women. Not the words some twentieth-century translators reached for.</p>
+
+    <p>You do not need to be a partisan in any culture-war fight to notice that this poem has always been a little more interested in women&rsquo;s interiority than its inheritors have been.</p>
+
+    <div class="figure" aria-hidden="true">
+      <div class="figure-art">
+        <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="loomBg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ede4d3"/>
+              <stop offset="100%" stop-color="#d4c8b3"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="450" fill="url(#loomBg)"/>
+          <!-- Loom frame -->
+          <g stroke="#1a1612" stroke-width="4" fill="none">
+            <rect x="220" y="80" width="360" height="320"/>
+            <line x1="220" y1="120" x2="580" y2="120"/>
+            <line x1="220" y1="360" x2="580" y2="360"/>
+          </g>
+          <!-- Vertical warp threads -->
+          <g stroke="#a88c4a" stroke-width="0.6" opacity="0.6">
+            <line x1="240" y1="120" x2="240" y2="360"/>
+            <line x1="260" y1="120" x2="260" y2="360"/>
+            <line x1="280" y1="120" x2="280" y2="360"/>
+            <line x1="300" y1="120" x2="300" y2="360"/>
+            <line x1="320" y1="120" x2="320" y2="360"/>
+            <line x1="340" y1="120" x2="340" y2="360"/>
+            <line x1="360" y1="120" x2="360" y2="360"/>
+            <line x1="380" y1="120" x2="380" y2="360"/>
+            <line x1="400" y1="120" x2="400" y2="360"/>
+            <line x1="420" y1="120" x2="420" y2="360"/>
+            <line x1="440" y1="120" x2="440" y2="360"/>
+            <line x1="460" y1="120" x2="460" y2="360"/>
+            <line x1="480" y1="120" x2="480" y2="360"/>
+            <line x1="500" y1="120" x2="500" y2="360"/>
+            <line x1="520" y1="120" x2="520" y2="360"/>
+            <line x1="540" y1="120" x2="540" y2="360"/>
+            <line x1="560" y1="120" x2="560" y2="360"/>
+          </g>
+          <!-- Woven section (top half) -->
+          <g>
+            <rect x="220" y="120" width="360" height="110" fill="#b85c38" opacity="0.85"/>
+            <!-- meander pattern in weave -->
+            <g stroke="#ede4d3" stroke-width="1.5" fill="none" opacity="0.7">
+              <path d="M240,160 L260,160 L260,170 L250,170 L250,180 L270,180 L270,170 L260,170"/>
+              <path d="M290,160 L310,160 L310,170 L300,170 L300,180 L320,180 L320,170 L310,170"/>
+              <path d="M340,160 L360,160 L360,170 L350,170 L350,180 L370,180 L370,170 L360,170"/>
+              <path d="M390,160 L410,160 L410,170 L400,170 L400,180 L420,180 L420,170 L410,170"/>
+              <path d="M440,160 L460,160 L460,170 L450,170 L450,180 L470,180 L470,170 L460,170"/>
+              <path d="M490,160 L510,160 L510,170 L500,170 L500,180 L520,170"/>
+              <path d="M540,160 L560,160"/>
+            </g>
+          </g>
+          <!-- Unraveling thread spilling down -->
+          <g stroke="#b85c38" stroke-width="1.5" fill="none" opacity="0.7">
+            <path d="M400,230 Q420,260 380,290 T410,350 Q380,380 420,410"/>
+          </g>
+          <!-- Title-like inscription -->
+          <text x="400" y="60" text-anchor="middle" font-family="Cinzel, serif" font-size="11" letter-spacing="4" fill="#1a1612">PENELOPE&apos;S LOOM</text>
+        </svg>
+      </div>
+      <div class="figure-caption">Figure II &mdash; A three-year bluff. The loom that unraveled at night.</div>
+    </div>
+
+    <div class="ornament" aria-hidden="true">
+      <svg viewBox="0 0 80 18">
+        <line x1="0" y1="9" x2="28" y2="9" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="1" fill="currentColor"/>
+        <line x1="52" y1="9" x2="80" y2="9" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+    <!-- ============ SECTION 5: HISTORY OF REINTERPRETATION ============ -->
+    <h2 class="section">A Brief History of Getting Mad About Homer</h2>
+    <span class="kicker">Nolan is not the first. He will not be the last.</span>
+
+    <p>Here is a quick, partial list of things people have done to <em>The Odyssey</em> over the last 2,800 years.</p>
+
+    <p>The Romans rewrote it as their own founding myth, gave the role of the wandering hero to a Trojan refugee named Aeneas, and called the result the <em>Aeneid</em>. Medieval Christians turned Odysseus into a moral cautionary tale about prideful curiosity. Dante put him in hell. Tennyson, in the 1830s, wrote a poem in which an aging Odysseus, bored with peaceful Ithaca, decides to set sail again to die at sea, inventing, more or less, the modern midlife crisis.</p>
+
+    <p>James Joyce relocated the entire epic to a single day in 1904 Dublin and called it <em>Ulysses</em>. Margaret Atwood handed the microphone to Penelope and the murdered slave women and called it <em>The Penelopiad</em>. Derek Walcott, the Caribbean Nobel laureate, transposed Homer to a Saint Lucian fishing village in <em>Omeros</em>. The Coen Brothers set him in Depression-era Mississippi with a bluegrass soundtrack.</p>
+
+    <p>Pat Barker has been writing the Trojan War from the perspective of enslaved women for the better part of a decade. Natalie Haynes has been doing it for radio audiences. Stephen Fry retold it in a chatty modern voice and went on tour. Spike Lee made his own version, sort of, with <em>Chi-Raq</em>. Madeline Miller turned a minor witch into a two-million-copy bestseller. There is a long-running graphic novel series. There is an animated children&rsquo;s version. Somewhere there is, almost certainly, a manga.</p>
+
+    <p>Every single one of these adaptations was, in its moment, accused of distorting the original. Joyce&rsquo;s <em>Ulysses</em> was banned for obscenity in the United States. Walcott was condescended to. Miller was sneered at. Wilson&rsquo;s translation was attacked, often viciously, for being a woman&rsquo;s. None of them broke Homer. He is still here.</p>
+
+    <div class="pullquote">
+      The poem has always belonged to whoever picks it up next. Reading it has always meant arguing with it.
+    </div>
+
+    <p>Nolan is not the first director to put Hollywood actors in tunics. He is not even the first director to have his casting decisions become a referendum on the culture. He will not be the last. The poem will absorb him, as it has absorbed everyone else, and in twenty years some new filmmaker will be accused of ruining whatever Nolan turned out to make.</p>
+
+    <p>The only people who lose are the ones who never read the source.</p>
+
+  </div>
+</article>
+
+<!-- ============ TRANSLATION GUIDE ============ -->
+<section class="translations">
+  <div class="col">
+    <h2 class="section">Which Translation Should You Actually Read?</h2>
+    <span class="kicker">A short, opinionated guide</span>
+
+    <p>Here is the secret nobody tells you: there is no single &ldquo;real&rdquo; <em>Odyssey</em> in English. There are only translations, and each one is a different argument about what the poem is.</p>
+
+    <p>If you read three different translations side by side, you can be forgiven for thinking you are reading three different books. This is not a flaw in the translators. It is a feature of poetry. Homer wrote in a dialect of Greek that no one spoke even when he was alive&mdash;a literary, sung, formulaic language built for memorization across generations of oral performance. There is no neutral way to render that into modern English. Every translator makes a choice. Every choice is a kind of interpretation.</p>
+
+    <p>Here are the ones worth knowing.</p>
+
+    <div class="card-grid">
+
+      <!-- LATTIMORE — featured -->
+      <div class="book-card featured">
+        <div class="book-cover">
+          <svg viewBox="0 0 200 300" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="lat" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2a1f3a"/>
+                <stop offset="100%" stop-color="#1b1429"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="300" fill="url(#lat)"/>
+            <!-- decorative border -->
+            <rect x="14" y="14" width="172" height="272" fill="none" stroke="#a88c4a" stroke-width="1" opacity="0.7"/>
+            <rect x="20" y="20" width="160" height="260" fill="none" stroke="#a88c4a" stroke-width="0.4" opacity="0.5"/>
+            <!-- title block -->
+            <text x="100" y="90" text-anchor="middle" font-family="Cinzel, serif" font-size="9" letter-spacing="3" fill="#a88c4a">HOMER</text>
+            <line x1="60" y1="105" x2="140" y2="105" stroke="#a88c4a" stroke-width="0.6"/>
+            <text x="100" y="145" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="26" fill="#ede4d3">The</text>
+            <text x="100" y="180" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="32" font-weight="500" fill="#ede4d3">ODYSSEY</text>
+            <line x1="60" y1="195" x2="140" y2="195" stroke="#a88c4a" stroke-width="0.6"/>
+            <!-- small ship motif -->
+            <g transform="translate(100,230)" fill="#a88c4a" opacity="0.7">
+              <path d="M-22,8 Q-20,14 -10,15 L10,15 Q20,14 22,8 Z"/>
+              <line x1="0" y1="8" x2="0" y2="-12" stroke="#a88c4a" stroke-width="0.8"/>
+              <path d="M0,-12 L0,5 L-14,3 Q-12,-6 0,-12 Z"/>
+            </g>
+            <text x="100" y="270" text-anchor="middle" font-family="Cinzel, serif" font-size="7" letter-spacing="2" fill="#a88c4a">LATTIMORE</text>
+          </svg>
+        </div>
+        <div class="book-content">
+          <h4>The Sea-Salt Original</h4>
+          <div class="translator">Translated by Richmond Lattimore &middot; 1965</div>
+          <p>If you want to feel closest to what Homer&rsquo;s Greek actually sounded like&mdash;the rolling rhythm, the formal weight, the strangeness of an ancient voice that does not pretend to be modern&mdash;Lattimore is the one. His translation preserves the long, six-beat line of the original. It does not condescend. It does not modernize. It reads, deliberately, like an artifact: as if you have been handed something old, salt-stained, and unembarrassed about its age.</p>
+          <p>Classicists and serious readers have quietly relied on Lattimore for sixty years. It is patient. It rewards re-reading. It is also, for the right reader, the most beautiful: the line-by-line music of the Greek comes through more clearly here than almost anywhere else. If you have ever wanted to understand why people have spent entire lives studying this poem, Lattimore is the door. Start here.</p>
+          <a href="#" class="btn">Buy Lattimore on Amazon</a>
+        </div>
+      </div>
+
+      <!-- FAGLES -->
+      <div class="book-card">
+        <div class="book-cover">
+          <svg viewBox="0 0 200 300" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="fag" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8c4127"/>
+                <stop offset="100%" stop-color="#5e2818"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="300" fill="url(#fag)"/>
+            <!-- abstract wave pattern -->
+            <g stroke="#ede4d3" stroke-width="0.6" fill="none" opacity="0.3">
+              <path d="M0,80 Q50,70 100,80 T200,80"/>
+              <path d="M0,110 Q50,100 100,110 T200,110"/>
+              <path d="M0,140 Q50,130 100,140 T200,140"/>
+              <path d="M0,220 Q50,210 100,220 T200,220"/>
+              <path d="M0,250 Q50,240 100,250 T200,250"/>
+            </g>
+            <text x="100" y="170" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="36" fill="#ede4d3">ODYSSEY</text>
+            <text x="100" y="195" text-anchor="middle" font-family="Cinzel, serif" font-size="8" letter-spacing="3" fill="#ede4d3" opacity="0.7">HOMER</text>
+            <text x="100" y="280" text-anchor="middle" font-family="Cinzel, serif" font-size="7" letter-spacing="2" fill="#ede4d3" opacity="0.6">FAGLES</text>
+          </svg>
+        </div>
+        <div class="book-content">
+          <h4>The Cinematic One</h4>
+          <div class="translator">Translated by Robert Fagles &middot; 1996</div>
+          <p>Fagles is the translation most American readers actually own. It is the Penguin Classics paperback you will find in used bookstores everywhere. And there is a reason it has been the bestselling translation for thirty years: it is <em>propulsive</em>. Fagles writes for a modern ear without sanding down the strangeness. His Odysseus feels like a character in a movie. His battle scenes have momentum. His Penelope has snap. The introduction by classicist Bernard Knox is itself worth the price of the book.</p>
+          <p>If Lattimore is the cathedral, Fagles is the great novel. Pick this one if you want to actually finish the poem in three weeks.</p>
+          <a href="#" class="btn alt">Buy Fagles on Amazon</a>
+        </div>
+      </div>
+
+      <!-- WILSON -->
+      <div class="book-card">
+        <div class="book-cover">
+          <svg viewBox="0 0 200 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="200" height="300" fill="#ede4d3"/>
+            <!-- minimal modern design -->
+            <rect x="0" y="0" width="200" height="60" fill="#1a1612"/>
+            <text x="100" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="11" letter-spacing="4" fill="#ede4d3">HOMER</text>
+            <text x="100" y="140" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="42" font-weight="500" fill="#1a1612">The</text>
+            <text x="100" y="185" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="34" font-weight="600" fill="#b85c38">Odyssey</text>
+            <line x1="60" y1="210" x2="140" y2="210" stroke="#1a1612" stroke-width="0.6"/>
+            <text x="100" y="270" text-anchor="middle" font-family="Cinzel, serif" font-size="8" letter-spacing="3" fill="#1a1612">A NEW TRANSLATION</text>
+            <text x="100" y="285" text-anchor="middle" font-family="Cinzel, serif" font-size="7" letter-spacing="3" fill="#b85c38">EMILY WILSON</text>
+          </svg>
+        </div>
+        <div class="book-content">
+          <h4>The Reframing</h4>
+          <div class="translator">Translated by Emily Wilson &middot; 2017</div>
+          <p>Emily Wilson became the first woman to translate the <em>Odyssey</em> into English. The result is leaner, faster, and uses a tight iambic pentameter&mdash;the meter of Shakespeare&mdash;instead of the longer six-beat line. The English is plainer. The book is shorter. Some readers find this refreshing; some find it underwhelming.</p>
+          <p>What is genuinely different is Wilson&rsquo;s treatment of moral language. Where earlier translators softened, condemned, or sexualized the female characters, Wilson lets the Greek speak more directly. The slave women Odysseus murders are slaves. Circe is a goddess, not a temptress. Penelope is a person, not a virtue. It is the best translation to read second, after you have read one of the others. The comparison is illuminating.</p>
+          <a href="#" class="btn alt">Buy Wilson on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Companions -->
+    <div class="companions">
+      <h3>If you finish, and want more</h3>
+      <ul>
+        <li>
+          <div class="title-block">
+            <span class="t">Circe</span><span class="a">&mdash; Madeline Miller</span>
+            <div class="d">The witch from Book 10, given an entire novel of her own. The rare retelling that does not feel parasitic.</div>
+          </div>
+          <a href="#" class="btn alt">Buy</a>
+        </li>
+        <li>
+          <div class="title-block">
+            <span class="t">The Penelopiad</span><span class="a">&mdash; Margaret Atwood</span>
+            <div class="d">Penelope tells the story. The murdered slave women act as a Greek chorus that haunts the entire book.</div>
+          </div>
+          <a href="#" class="btn alt">Buy</a>
+        </li>
+        <li>
+          <div class="title-block">
+            <span class="t">Odysseus in America</span><span class="a">&mdash; Jonathan Shay</span>
+            <div class="d">The classicist&rsquo;s study of Homer as trauma psychology. Will permanently change how you read the poem.</div>
+          </div>
+          <a href="#" class="btn alt">Buy</a>
+        </li>
+        <li>
+          <div class="title-block">
+            <span class="t">The Silence of the Girls</span><span class="a">&mdash; Pat Barker</span>
+            <div class="d">The Trojan War retold from the perspective of the enslaved women who lived through it. Brutal and necessary.</div>
+          </div>
+          <a href="#" class="btn alt">Buy</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+  <div class="col">
+    <h2 class="section">Before the Lights Go Down</h2>
+    <span class="kicker" style="color:#c9aa61;">A small invitation</span>
+
+    <p>Christopher Nolan&rsquo;s <em>Odyssey</em> arrives in theaters on July 17, 2026. By then, the controversies will have multiplied. New ones will have replaced the old. There will be debates about the score, the run time, the third act, whether the Sirens look right, whether the Cyclops is too CGI, whether Matt Damon was the right Odysseus, whether the ending honors Homer or betrays him.</p>
+
+    <p>Most of the people fighting still will not have read the book.</p>
+
+    <p>You can be one of the ones who did.</p>
+
+    <p>It will take you maybe two weeks of evenings. Maybe less. It is shorter than a Stephen King novel. It is funnier than you expect. It is sadder than you expect. It contains, in addition to monsters, some of the most precisely observed scenes of family life ever written: a son who cannot recognize his father, a wife who refuses to trust the man she has been waiting for, a dog who waits twenty years for his master and then dies in the dust the moment recognition passes between them. It contains an old woman who recognizes Odysseus by a scar on his thigh while she is washing his feet, and almost gives him away, and Homer pauses, mid-recognition, for a hundred lines of flashback to tell you exactly how he got that scar as a teenager, hunting a boar with his grandfather. This is a poem that thinks scars matter.</p>
+
+    <p>It contains a goddess who stops a war by pulling a hero by the hair.</p>
+
+    <p>It contains the first beach scene in literature.</p>
+
+    <p>It contains an underworld in which dead heroes confess that they would rather be the lowest slave alive than the king of the dead.</p>
+
+    <p>It contains, in other words, almost everything.</p>
+
+    <p>The controversies will fade. The poem will not. It has not, in twenty-eight centuries. It outlived the language it was written in. It outlived the civilization that produced it. It will outlive the discourse around the movie. It will probably outlive the movie itself.</p>
+
+    <p>The wine-dark sea is still there. It is the same sea Homer wrote about. The light on it has not changed.</p>
+
+    <p>You can sit down with the book this week. Nobody on the internet will know. Nobody will award you a badge. You will just have done what people have done for three thousand years: open the first page, and start.</p>
+
+    <p>That has always been the only thing the poem ever asked of you.</p>
+
+    <div class="ornament" aria-hidden="true" style="margin-top:60px;">
+      <svg viewBox="0 0 80 18">
+        <line x1="0" y1="9" x2="28" y2="9" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="40" cy="9" r="1" fill="currentColor"/>
+        <line x1="52" y1="9" x2="80" y2="9" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="disclosure">&#x2756; &nbsp; Affiliate Disclosure &nbsp; &#x2756;</div>
+  <p>The Margin Notes is a participant in the Amazon Services LLC Associates Program. As an Amazon Associate, we earn from qualifying purchases. The recommendations on this page reflect our honest opinion of the books, not the commission. We only point readers to editions we actually believe in.</p>
+  <p style="margin-top:24px; opacity:0.6;">&copy; 2026 The Margin Notes &middot; Long-form essays for readers who still read.</p>
+</footer>
+
+</body>
+</html>
